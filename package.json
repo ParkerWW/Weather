@@ -1,0 +1,24 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "Weather app",
+  "keywords": [
+    "web",
+    "app"
+  ],
+  "homepage": "https://github.com/ParkerWW/Weather#readme",
+  "bugs": {
+    "url": "https://github.com/ParkerWW/Weather/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ParkerWW/Weather.git"
+  },
+  "license": "ISC",
+  "author": "Parker Weisel",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

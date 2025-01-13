@@ -1,0 +1,4 @@
+#ignore tests and project files
+obj/
+bin/
+test*
