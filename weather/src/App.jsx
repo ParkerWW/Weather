@@ -1,22 +1,39 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Logo from '/Logo.png'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
+  const getData = async () => {
+    let data
+    //const response = await fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Hayden%20idaho?unitGroup=us&key=K9L2PYB8W29VGJU8L6TBM4G9Z&contentType=json", {
+      const response = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
+      "method": "GET",
+      "headers": {
+      }
+      })
+    .catch(err => {
+      console.error(err)
+    })
+
+    data = await response.json()
+    return data
+}
+
+;(async () => {
+  const data = await getData()
+  console.log(data)
+})()
+
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+        <a>
+          <img src={Logo} className="logo" alt="logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>data</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
