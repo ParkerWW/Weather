@@ -1,30 +1,35 @@
-import { useState } from 'react'
 import Logo from '/Logo.png'
 import './App.css'
+ 
+//jquery import
+var script = document.createElement('script');
+script.src = 'https://code.jquery.com/jquery-3.6.3.min.js'; // Check https://jquery.com/ for the current version
+document.getElementsByTagName('head')[0].appendChild(script);
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  const getData = async () => {
-    let data
-    //const response = await fetch("https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Hayden%20idaho?unitGroup=us&key=K9L2PYB8W29VGJU8L6TBM4G9Z&contentType=json", {
-      const response = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
-      "method": "GET",
-      "headers": {
-      }
-      })
-    .catch(err => {
-      console.error(err)
-    })
-
-    data = await response.json()
-    return data
+  //get data from api
+  function getData() {
+  $.get("https://api.weatherapi.com/v1/current.json?key=703225d7d1284e52b05235515251701&q=83835&aqi=no")
+  //$.get("https://jsonplaceholder.typicode.com/posts/1") 
+  .done(function(response) {
+    //console.log(response)
+    processData(response)
+  })
+  .fail(function() {
+    console.log("jQuery Request failed")
+  });
 }
 
-;(async () => {
-  const data = await getData()
-  console.log(data)
-})()
+//put api into html by ID
+function processData(response){
+  //get location and current temp
+  let loc = response.location.name + ", " + response.location.region
+  document.getElementById("loc").innerText = loc
+
+  let temp = response.current.temp_f
+  document.getElementById("temp").innerText = temp + " °F"
+}
+getData()
 
   return (
     <>
@@ -32,19 +37,12 @@ function App() {
         <a>
           <img src={Logo} className="logo" alt="logo" />
         </a>
-      </div>
-      <h1>data</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        <p className="legal">
+        Could also be inside
       </p>
+      </div>
+      <h1 id="temp" />
+      <p id="loc" />
     </>
   )
 }
