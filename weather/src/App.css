@@ -18,3 +18,15 @@
 .legal {
   color: #888;
 }
+
+body {
+  background-image: url("assets/background.jpg");
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+p, h1 {
+  filter: drop-shadow(1px 1px black);
+}

@@ -12,7 +12,7 @@ function App() {
   $.get("https://api.weatherapi.com/v1/current.json?key=703225d7d1284e52b05235515251701&q=83835&aqi=no")
   //$.get("https://jsonplaceholder.typicode.com/posts/1") 
   .done(function(response) {
-    //console.log(response)
+    console.log(response)
     processData(response)
   })
   .fail(function() {
@@ -33,7 +33,7 @@ getData()
 
   return (
     <>
-      <div>
+      <div className="grad1">
         <a>
           <img src={Logo} className="logo" alt="logo" />
         </a>
