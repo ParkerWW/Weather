@@ -7,16 +7,48 @@
 
 .logo {
   height: 6em;
-  
-  will-change: filter;
-  transition: filter 300ms;
+  padding-top: 2px;
+  padding-left: 2px;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 1em #65baffaa);
+  filter: drop-shadow(0 0 2em #48adffc4);
 }
 
 .legal {
   color: #888;
+  padding-left: 5em;
+  padding-bottom: 2px;
+}
+
+.header {
+  position: absolute;
+  right: 0em;
+  top: 0em;
+  width:100%;
+  margin: 0;
+  padding: 0;
+  background: rgb(85, 85, 85, .7);
+  color: #f1f1f1;
+
+  text-align: left;
+}
+.textboxC {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 3.5em;
+}
+input[type="text"] {
+  width: 400px;
+  height: 30px;
+  font-size: 14pt;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  column-gap: 0px;
 }
 
 body {
@@ -29,4 +61,6 @@ body {
 
 p, h1 {
   filter: drop-shadow(1px 1px black);
+  padding: 0;
+  margin: 0;
 }

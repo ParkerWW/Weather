@@ -22,26 +22,33 @@ function App() {
 
 //put api into html by ID
 function processData(response){
-  //get location and current temp
+  //get location, current temp, and weather icon
   let loc = response.location.name + ", " + response.location.region
   document.getElementById("loc").innerText = loc
 
   let temp = response.current.temp_f
   document.getElementById("temp").innerText = temp + " °F"
+
+  let icon = response.current.condition.icon
+  document.getElementById("icon").src = icon
 }
 getData()
 
   return (
     <>
-      <div className="grad1">
-        <a>
-          <img src={Logo} className="logo" alt="logo" />
-        </a>
+      <header className="header">
+        <img src={Logo} className="logo" alt="logo" />
         <p className="legal">
-        Could also be inside
-      </p>
+          Could also be inside
+        </p>
+        <div className="textboxC">
+          <input className="texbox" type="text" id="loc" name="Location" />
+        </div>
+      </header>
+      <div className="container">
+        <h1 id="temp" />
+        <img id="icon" width="80" height="auto" />
       </div>
-      <h1 id="temp" />
       <p id="loc" />
     </>
   )
