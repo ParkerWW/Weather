@@ -12,7 +12,7 @@ function App() {
   $.get("https://api.weatherapi.com/v1/current.json?key=703225d7d1284e52b05235515251701&q=83835&aqi=no")
   //$.get("https://jsonplaceholder.typicode.com/posts/1") 
   .done(function(response) {
-    console.log(response)
+    //console.log(response)
     processData(response)
   })
   .fail(function() {
@@ -24,7 +24,7 @@ function App() {
 function processData(response){
   //get location, current temp, and weather icon
   let loc = response.location.name + ", " + response.location.region
-  document.getElementById("loc").innerText = loc
+  document.getElementById("location").innerText = loc
 
   let temp = response.current.temp_f
   document.getElementById("temp").innerText = temp + " °F"
@@ -32,6 +32,13 @@ function processData(response){
   let icon = response.current.condition.icon
   document.getElementById("icon").src = icon
 }
+
+function handleChange() {
+  let newLoc = document.getElementById("locText").value
+  //console.log(newLoc)
+  getData()
+}
+
 getData()
 
   return (
@@ -42,14 +49,14 @@ getData()
           Could also be inside
         </p>
         <div className="textboxC">
-          <input className="texbox" type="text" id="loc" name="Location" />
+          <input className="texbox" type="text" id="locText" name="LocationText" onChange={handleChange} placeholder="Enter Location" />
         </div>
       </header>
       <div className="container">
         <h1 id="temp" />
         <img id="icon" width="80" height="auto" />
       </div>
-      <p id="loc" />
+      <p id="location" />
     </>
   )
 }
