@@ -4,6 +4,19 @@
   text-align: center;
 }
 
+ /* Everything for the header: logo, text under logo, and textbox with button */
+.header {
+  position: absolute;
+  right: 0em;
+  top: 0em;
+  width:100%;
+  margin: 0;
+  padding: 0;
+
+  background: rgb(85, 85, 85, .7);
+  color: #f1f1f1;
+  text-align: left;
+}
 .logo {
   height: 6em;
   padding-top: 2px;
@@ -17,20 +30,9 @@
   color: #979797;
   padding-left: 5em;
   padding-bottom: 2px;
-}
-
-.header {
-  position: absolute;
-  right: 0em;
-  top: 0em;
-  width:100%;
   margin: 0;
-  padding: 0;
-
-  background: rgb(85, 85, 85, .7);
-  color: #f1f1f1;
-  text-align: left;
 }
+
 .textboxC {
   position: absolute;
   left: 50%;
@@ -38,11 +40,14 @@
   top: 3.5em;
 }
 ::placeholder {
-  text-align: center;
   color: #48adffc4;
 }
-input[type="text"] {
-  width: 400px;
+.textbox:focus::placeholder {
+  color: #6966ff;;
+}
+
+.textbox {
+  width: 306.5px;
   height: 30px;
   font-size: 14pt;
 
@@ -50,16 +55,27 @@ input[type="text"] {
   border: 2px solid #48adffc4;
   padding: 5px;
   padding-left: 16px;
-  padding-right: 16px;
+  padding-right: 93.5px;
+}
+.textbox:focus {
+  outline: none !important;
+  border:2px solid #6966ff;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center; 
-  column-gap: 0px;
-}
+.textbutton {
+  position: absolute;
+  right: 0;
+  border-radius: 25px;
+  border: 2px solid #48adffc4;
 
+  color: #48adffc4;
+  background-color: #2e2e3600;
+}
+.textbutton:hover {
+  border:2px solid #6966ff;
+  color: #6966ff;
+}
+ /* Bacground image */
 body {
   background-image: url("assets/background.jpg");
   height: 100%;
@@ -68,7 +84,8 @@ body {
   background-size: cover;
 }
 
-p, h1 {
+/* Data in the center of the page */
+.info {
   filter: drop-shadow(1.5px 1.5px black);
   padding: 0;
   margin: 0;
