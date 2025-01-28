@@ -1,4 +1,4 @@
-import Logo from './assets/Logo.png'
+import Logo from './Logo.png'
 import './App.css'
 import React from 'react'
  
