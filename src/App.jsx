@@ -1,6 +1,7 @@
 import Logo from './assets/Logo.png'
 import './App.css'
-import React from 'react'
+import $ from 'jquery'; 
+import React, { useEffect } from 'react'
  
 //jquery import
 var script = document.createElement('script');
@@ -51,14 +52,17 @@ function onEnter() {
 }
 
 //fetch data on page load
-getData()
+useEffect(() => {
+  getData();
+}, []);
 
   return (
-    <html lang='en'>
-      <header className="header" content="html/text; X-Content-Type-Options: nosniff">
-        <meta charSet="utf-8" />
+    <>
+      <header className="header">
+        <meta content="application/javascript; X-Content-Type-Options: nosniff" charSet="utf-8" />
         <title>Weather</title>
         <base href="." />
+
         <img src={Logo} className="logo" alt="logo" />
         <p className="legal"> Could also be inside </p>
 
@@ -71,7 +75,7 @@ getData()
       <img id="icon" width="80" height="auto" />
       <h1 className='info' id="temp" />
       <p className='info' id="location" />
-    </html>
+    </>
   )
 }
 
