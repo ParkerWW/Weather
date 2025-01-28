@@ -55,7 +55,7 @@ getData()
 
   return (
     <html lang='en'>
-      <header className="header">
+      <header className="header" content="X-Content-Type-Options: nosniff">
         <meta charSet="utf-8" />
         <title>Weather</title>
         <base href="." />
