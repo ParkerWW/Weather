@@ -1,7 +1,6 @@
-import Logo from '/Logo.png'
+import Logo from 'Logo.png'
 import './App.css'
 import React from 'react'
-import Button from 'react'
  
 //jquery import
 var script = document.createElement('script');
