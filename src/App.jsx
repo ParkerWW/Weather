@@ -54,8 +54,11 @@ function onEnter() {
 getData()
 
   return (
-    <>
+    <html lang='en'>
       <header className="header">
+        <meta charSet="utf-8" />
+        <title>Weather</title>
+        <base href="." />
         <img src={Logo} className="logo" alt="logo" />
         <p className="legal"> Could also be inside </p>
 
@@ -68,7 +71,7 @@ getData()
       <img id="icon" width="80" height="auto" />
       <h1 className='info' id="temp" />
       <p className='info' id="location" />
-    </>
+    </html>
   )
 }
 
