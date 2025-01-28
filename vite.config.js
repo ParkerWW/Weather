@@ -5,4 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: "https://parkerww.github.io/Weather/",
+  build: {
+    outDir: './docs',
+    emptyOutDir: true,
+  },
 })

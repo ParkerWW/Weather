@@ -59,10 +59,6 @@ useEffect(() => {
   return (
     <>
       <header className="header">
-        <meta content="application/javascript; X-Content-Type-Options: nosniff" charSet="utf-8" />
-        <title>Weather</title>
-        <base href="." />
-
         <img src={Logo} className="logo" alt="logo" />
         <p className="legal"> Could also be inside </p>
 
