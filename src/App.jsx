@@ -3,9 +3,9 @@ import './App.css'
 import $ from 'jquery'; 
 import React, { useEffect } from 'react'
  
-//jquery import
+//jQuery import
 var script = document.createElement('script');
-script.src = 'https://code.jquery.com/jquery-3.6.3.min.js'; // Check https://jquery.com/ for the current version
+script.src = 'https://code.jquery.com/jquery-3.6.3.min.js'; //Check https://jquery.com/ for the current version
 document.getElementsByTagName('head')[0].appendChild(script);
 
 function App() {
@@ -13,7 +13,6 @@ function App() {
   //get data from api
   function getData() {
   $.get("https://api.weatherapi.com/v1/current.json?key=703225d7d1284e52b05235515251701&q=" + place + "&aqi=no")
-  
   //$.get("https://jsonplaceholder.typicode.com/posts/1") 
   .done(function(response) {
     //console.log(response)
