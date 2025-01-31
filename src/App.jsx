@@ -25,7 +25,7 @@ function App() {
 
 //put api response on webpage
 function processData(response){
-  //get location, current temp, and weather icon
+  //get location, current temp, weather icon, time
   let loc = response.location.name + ", " + response.location.region
   document.getElementById("location").innerText = loc
 
@@ -34,7 +34,14 @@ function processData(response){
 
   let icon = response.current.condition.icon
   document.getElementById("icon").src = icon
+
+  let time = response.location.localtime
+  let pTime = time.split(' ')
+  document.getElementById("time").innerText = pTime[1]
+  console.log(pTime)
 }
+
+
 
 function handleChange() {
   //clicking submit button to update location
@@ -67,9 +74,12 @@ useEffect(() => {
         </div>
       </header>
       
-      <img id="icon" width="80" height="auto" />
-      <h1 className='info' id="temp" />
-      <p className='info' id="location" />
+      <div className='card'>
+        <img id="icon" width="80" height="auto" />
+        <h1 className='info' id="temp" />
+        <p className='info' id="location" />
+        <h1 className='info' id="time" />
+      </div>
     </>
   )
 }
