@@ -36,12 +36,36 @@ function processData(response){
   document.getElementById("icon").src = icon
 
   let time = response.location.localtime
-  let pTime = time.split(' ')
-  document.getElementById("time").innerText = pTime[1]
-  console.log(pTime)
+  time = parseTime(time)
+  document.getElementById("time").innerText = time
+  //console.log(time)
 }
 
+//parse date/24hr time into 12hr time
+function parseTime(time) {
+  let pTime = time.split(' ')
+  let hrs = pTime[1].slice(0,2)
 
+  //conver 24 to 12hr time
+  if(hrs > 12){
+    //need to add the 0 in if it would be less than 10
+    if(hrs-12 < 10){
+      let tHrs = hrs-12
+      tHrs = '0' + tHrs
+      pTime[1] = pTime[1].replace(hrs, tHrs)
+      pTime[1] = pTime[1] + " PM"
+    }
+    else{
+      pTime[1] = pTime[1].replace(hrs, hrs-12)
+      pTime[1] = pTime[1] + " PM"
+    }
+  }
+  else {
+    pTime[1] = pTime[1] + " AM"
+  }
+
+  return pTime[1]
+}
 
 function handleChange() {
   //clicking submit button to update location
@@ -78,7 +102,7 @@ useEffect(() => {
         <img id="icon" width="80" height="auto" />
         <h1 className='info' id="temp" />
         <p className='info' id="location" />
-        <h1 className='info' id="time" />
+        <h1 className='info time' id="time" />
       </div>
     </>
   )
