@@ -1,7 +1,7 @@
 import Logo from './assets/Logo.png'
 import './App.css'
 import $ from 'jquery'; 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
  
 //jQuery import
 var script = document.createElement('script');
@@ -15,6 +15,7 @@ function App() {
   $.get("https://api.weatherapi.com/v1/current.json?key=703225d7d1284e52b05235515251701&q=" + place + "&aqi=no")
   //$.get("https://jsonplaceholder.typicode.com/posts/1") 
   .done(function(response) {
+    console.log("jQuery Request Success")
     //console.log(response)
     processData(response)
   })
@@ -35,34 +36,18 @@ function processData(response){
   let icon = response.current.condition.icon
   document.getElementById("icon").src = icon
 
-  let time = response.location.localtime
-  time = parseTime(time)
-  document.getElementById("time").innerText = time
-  //console.log(time)
+  let time = response.location.tz_id
+  let lTime = (new Date()).toLocaleString([], {timeZone: time})
+  //console.log(lTime)
+  lTime = parseTime(lTime)
+  document.getElementById("time").innerText = lTime
 }
 
-//parse date/24hr time into 12hr time
 function parseTime(time) {
-  let pTime = time.split(' ')
-  let hrs = pTime[1].slice(0,2)
-
-  //conver 24 to 12hr time
-  if(hrs > 12){
-    //need to add the 0 in if it would be less than 10
-    if(hrs-12 < 10){
-      let tHrs = hrs-12
-      tHrs = '0' + tHrs
-      pTime[1] = pTime[1].replace(hrs, tHrs)
-      pTime[1] = pTime[1] + " PM"
-    }
-    else{
-      pTime[1] = pTime[1].replace(hrs, hrs-12)
-      pTime[1] = pTime[1] + " PM"
-    }
-  }
-  else {
-    pTime[1] = pTime[1] + " AM"
-  }
+  //split time into date and time then remove the seconds and add back AM/PM
+  let pTime = time.split(/[ ,]+/)
+  pTime[1] = pTime[1].slice(0, -3)
+  pTime[1] = pTime[1].concat(" " + pTime[2])
 
   return pTime[1]
 }
