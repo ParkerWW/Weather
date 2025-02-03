@@ -10,7 +10,7 @@ document.getElementsByTagName('head')[0].appendChild(script);
 
 function App() {
   let place = "Seattle Washington"
-  //get data from api
+  //get data from api with default being Seattle
   function getData() {
   $.get("https://api.weatherapi.com/v1/current.json?key=703225d7d1284e52b05235515251701&q=" + place + "&aqi=no")
   //$.get("https://jsonplaceholder.typicode.com/posts/1") 
@@ -24,28 +24,24 @@ function App() {
   });
 }
 
-//put api response on webpage
 function processData(response){
-  //get location, current temp, weather icon, time
-  let loc = response.location.name + ", " + response.location.region
-  document.getElementById("location").innerText = loc
+  //get weather icon, current temp, location, time and put it on the page
+  document.getElementById("icon").src = response.current.condition.icon
 
-  let temp = response.current.temp_f
-  document.getElementById("temp").innerText = temp + " °F"
+  document.getElementById("temp").innerText = response.current.temp_f + " °F"
 
-  let icon = response.current.condition.icon
-  document.getElementById("icon").src = icon
+  document.getElementById("location").innerText = response.location.name + ", " + response.location.region
 
-  let time = response.location.tz_id
-  let lTime = (new Date()).toLocaleString([], {timeZone: time})
-  //console.log(lTime)
-  lTime = parseTime(lTime)
-  document.getElementById("time").innerText = lTime
+  document.getElementById("time").innerText = parseTime(response.location.tz_id)
 }
 
 function parseTime(time) {
+  //get time by timezone from api
+  let lTime = (new Date()).toLocaleString([], {timeZone: time})
+  //console.log(lTime)
+
   //split time into date and time then remove the seconds and add back AM/PM
-  let pTime = time.split(/[ ,]+/)
+  let pTime = lTime.split(/[ ,]+/)
   pTime[1] = pTime[1].slice(0, -3)
   pTime[1] = pTime[1].concat(" " + pTime[2])
 
@@ -71,6 +67,7 @@ useEffect(() => {
   getData();
 }, []);
 
+//render HTML
   return (
     <>
       <header className="header">
