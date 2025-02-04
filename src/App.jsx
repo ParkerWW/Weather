@@ -12,12 +12,14 @@ function App() {
   let place = "Seattle Washington"
   //get data from api with default being Seattle
   function getData() {
-  $.get("https://api.weatherapi.com/v1/current.json?key=703225d7d1284e52b05235515251701&q=" + place + "&aqi=no")
+  $.get("http://api.weatherapi.com/v1/forecast.json?key=703225d7d1284e52b05235515251701&q=" + place + "&days=7&aqi=no&alerts=no")
   //$.get("https://jsonplaceholder.typicode.com/posts/1") 
   .done(function(response) {
     console.log("jQuery Request Success")
-    //console.log(response)
+    console.log(response)
+
     processData(response)
+    processForcast(response)
   })
   .fail(function() {
     console.log("jQuery Request failed")
@@ -48,6 +50,18 @@ function parseTime(time) {
   return pTime[1]
 }
 
+function processForcast(response) {
+  //get date and convert it to week day, get avg temp, and get icon for all 3 days
+  let weekDay = new Date(response.forecast.forecastday[0].date)
+  document.getElementById("f1Day").innerText = (new Intl.DateTimeFormat("en-US", {weekday: "short"}).format(weekDay))
+
+  document.getElementById("f1Temp").innerText = response.forecast.forecastday[0].day.avgtemp_f + " °F"
+
+  document.getElementById("f1Icon").src = response.forecast.forecastday[0].day.condition.icon
+  //console.log(response.forecast.forecastday[0].date)
+}
+
+
 function handleChange() {
   //clicking submit button to update location
   place = document.getElementById("locText").value
@@ -64,7 +78,7 @@ function onEnter() {
 
 //fetch data on page load
 useEffect(() => {
-  getData();
+  getData()
 }, []);
 
 //render HTML
@@ -80,11 +94,33 @@ useEffect(() => {
         </div>
       </header>
       
-      <div className='card'>
-        <img id="icon" width="80" height="auto" />
-        <h1 className='info' id="temp" />
-        <p className='info' id="location" />
-        <h1 className='info time' id="time" />
+      <div className='infoC'>
+        <div className='card'>
+          <img className='icon' id="icon" width="80" height="auto" />
+          <h1 className='info' id="temp" />
+          <p className='info' id="location" />
+          <h1 className='info time' id="time" />
+        </div>
+      </div>
+
+      <div className='fContainer'>
+        <div className='card cardf'>
+          <h1 className='info days' id='f1Day' />
+          <img className='icon' id="f1Icon" width="60" height="auto" />
+          <h1 className='info' id='f1Temp' />
+        </div>
+
+        <div className='card cardf'>
+          <h1 className='info days' id='f2Day' />
+          <img className='icon' id="f2Icon" width="60" height="auto" />
+          <h1 className='info' id='f2Temp' />
+        </div>
+
+        <div className='card cardf'>
+          <h1 className='info days' id='f3Day' />
+          <img className='icon' id="f3Icon" width="60" height="auto" />
+          <h1 className='info' id='f3Temp' />
+        </div>
       </div>
     </>
   )

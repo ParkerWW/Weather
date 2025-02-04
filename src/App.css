@@ -97,17 +97,30 @@ body {
 
 /* data in the center of the page */
 .info {
-  filter: drop-shadow(1.5px 1.5px black);
+  text-shadow: 1.5px 1.5px black;
   padding: 0;
   margin: 0;
 }
 .time {
   font-size: 30pt;
 }
+.days {
+  font-weight: 900;
+  letter-spacing: -5px;
+  line-height: 0.9;
+  -webkit-text-stroke: 5px black;
+  text-shadow: 4px 4px black;
+
+  paint-order: stroke fill;
+}
+.icon {
+line-height: 0.1;
+}
 
 .card {
   width: 200px;
   height: 250px;
+  margin: 2px;
   border-radius: 30px;
   box-shadow: 14px 14px 20px rgba(0, 0, 0, .3);
   background: rgba(173, 217, 250, 0.5);
@@ -123,4 +136,14 @@ body {
   backdrop-filter: blur(1px);
 
   transition: all .55s ease, background .5s .25s ease;
+}
+.cardf {
+  height: 175px;
+}
+
+.infoC {
+  margin-left: 204px;
+}
+.fContainer {
+  display: flex;
 }
