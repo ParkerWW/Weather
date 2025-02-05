@@ -16,7 +16,7 @@ function App() {
   //$.get("https://jsonplaceholder.typicode.com/posts/1") 
   .done(function(response) {
     console.log("jQuery Request Success")
-    console.log(response)
+    //console.log(response)
 
     processData(response)
     processForcast(response)
