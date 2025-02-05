@@ -12,7 +12,7 @@ function App() {
   let place = "Seattle Washington"
   //get data from api with default being Seattle
   function getData() {
-  $.get("http://api.weatherapi.com/v1/forecast.json?key=703225d7d1284e52b05235515251701&q=" + place + "&days=7&aqi=no&alerts=no")
+  $.get("https://api.weatherapi.com/v1/forecast.json?key=703225d7d1284e52b05235515251701&q=" + place + "&days=7&aqi=no&alerts=no")
   //$.get("https://jsonplaceholder.typicode.com/posts/1") 
   .done(function(response) {
     console.log("jQuery Request Success")
