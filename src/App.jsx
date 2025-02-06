@@ -12,11 +12,11 @@ function App() {
   let place = "Seattle Washington"
   //get data from api with default being Seattle
   function getData() {
-  $.get("https://api.weatherapi.com/v1/forecast.json?key=703225d7d1284e52b05235515251701&q=" + place + "&days=7&aqi=no&alerts=no")
+  $.get("https://api.weatherapi.com/v1/forecast.json?key=3ad39a92992d4c1d854194810250602&q=" + place + "&days=3&aqi=no&alerts=no")
   //$.get("https://jsonplaceholder.typicode.com/posts/1") 
   .done(function(response) {
     console.log("jQuery Request Success")
-    //console.log(response)
+    console.log(response)
 
     processData(response)
     processForcast(response)
@@ -52,13 +52,22 @@ function parseTime(time) {
 
 function processForcast(response) {
   //get date and convert it to week day, get avg temp, and get icon for all 3 days
-  let weekDay = new Date(response.forecast.forecastday[0].date)
-  document.getElementById("f1Day").innerText = (new Intl.DateTimeFormat("en-US", {weekday: "short"}).format(weekDay))
+  //day 1
+  let weekDay = new Date(response.forecast.forecastday[0].date + " 12:00:00")
+  document.getElementById("f1Day").innerText = weekDay.toString().slice(0, 3)
 
   document.getElementById("f1Temp").innerText = response.forecast.forecastday[0].day.avgtemp_f + " °F"
 
   document.getElementById("f1Icon").src = response.forecast.forecastday[0].day.condition.icon
-  //console.log(response.forecast.forecastday[0].date)
+
+  //day 2
+  weekDay.setDate(weekDay.getDate() + 1)
+  document.getElementById("f2Day").innerText = weekDay.toString().slice(0, 3)
+
+  document.getElementById("f2Temp").innerText = response.forecast.forecastday[1].day.avgtemp_f + " °F"
+
+  document.getElementById("f2Icon").src = response.forecast.forecastday[1].day.condition.icon
+  //console.log(weekDay)
 }
 
 
