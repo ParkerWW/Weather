@@ -113,9 +113,6 @@ body {
 
   paint-order: stroke fill;
 }
-.icon {
-line-height: 0.1;
-}
 
 .card {
   width: 200px;

@@ -67,7 +67,7 @@ function processForcast(response) {
   document.getElementById("f2Temp").innerText = response.forecast.forecastday[1].day.avgtemp_f + " °F"
 
   document.getElementById("f2Icon").src = response.forecast.forecastday[1].day.condition.icon
-  //console.log(weekDay)
+  //console.log(weekDay.setDate(weekDay.getDate() + 1))
 }
 
 
@@ -105,7 +105,7 @@ useEffect(() => {
       
       <div className='infoC'>
         <div className='card'>
-          <img className='icon' id="icon" width="80" height="auto" />
+          <img id="icon" width="80" height="auto" />
           <h1 className='info' id="temp" />
           <p className='info' id="location" />
           <h1 className='info time' id="time" />
@@ -115,7 +115,7 @@ useEffect(() => {
       <div className='fContainer'>
         <div className='card cardf'>
           <h1 className='info days' id='f1Day' />
-          <img className='icon' id="f1Icon" width="60" height="auto" />
+          <img id="f1Icon" width="60" height="auto" />
           <h1 className='info' id='f1Temp' />
         </div>
 
@@ -127,7 +127,7 @@ useEffect(() => {
 
         <div className='card cardf'>
           <h1 className='info days' id='f3Day' />
-          <img className='icon' id="f3Icon" width="60" height="auto" />
+          <img id="f3Icon" width="60" height="auto" />
           <h1 className='info' id='f3Temp' />
         </div>
       </div>
