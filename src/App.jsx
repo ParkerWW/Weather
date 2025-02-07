@@ -67,7 +67,15 @@ function processForcast(response) {
   document.getElementById("f2Temp").innerText = response.forecast.forecastday[1].day.avgtemp_f + " °F"
 
   document.getElementById("f2Icon").src = response.forecast.forecastday[1].day.condition.icon
-  //console.log(weekDay.setDate(weekDay.getDate() + 1))
+
+  //day 3
+  weekDay.setDate(weekDay.getDate() + 1)
+  document.getElementById("f3Day").innerText = weekDay.toString().slice(0, 3)
+
+  document.getElementById("f3Temp").innerText = response.forecast.forecastday[2].day.avgtemp_f + " °F"
+
+  document.getElementById("f3Icon").src = response.forecast.forecastday[2].day.condition.icon
+  //console.log(response.forecast.forecastday[2].day.condition)
 }
 
 
