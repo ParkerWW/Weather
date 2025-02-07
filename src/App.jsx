@@ -1,7 +1,7 @@
 import Logo from './assets/Logo.png'
 import './App.css'
 import $ from 'jquery'; 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
  
 //jQuery import
 var script = document.createElement('script');
@@ -16,7 +16,7 @@ function App() {
   //$.get("https://jsonplaceholder.typicode.com/posts/1") 
   .done(function(response) {
     console.log("jQuery Request Success")
-    console.log(response)
+    //console.log(response)
 
     processData(response)
     processForcast(response)
