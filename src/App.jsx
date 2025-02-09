@@ -34,26 +34,27 @@ function processData(response){
 
   document.getElementById("location").innerText = response.location.name + ", " + response.location.region
 
-  document.getElementById("time").innerText = parseTime(response.location.tz_id)
+  document.getElementById("time").innerText = parseTime(response.location.tz_id)[1]
 }
 
 function parseTime(time) {
   //get time by timezone from api
   let lTime = (new Date()).toLocaleString([], {timeZone: time})
-  //console.log(lTime)
 
   //split time into date and time then remove the seconds and add back AM/PM
   let pTime = lTime.split(/[ ,]+/)
   pTime[1] = pTime[1].slice(0, -3)
   pTime[1] = pTime[1].concat(" " + pTime[2])
+  pTime = pTime.splice(0, 2)
 
-  return pTime[1]
+  //console.log(pTime)
+  return pTime
 }
 
 function processForcast(response) {
   //get date and convert it to week day, get avg temp, and get icon for all 3 days
   //day 1
-  let weekDay = new Date(response.forecast.forecastday[0].date + " 12:00:00")
+  let weekDay = new Date(parseTime(response.location.tz_id))
   document.getElementById("f1Day").innerText = weekDay.toString().slice(0, 3)
 
   document.getElementById("f1Temp").innerText = response.forecast.forecastday[0].day.avgtemp_f + " °F"
@@ -75,7 +76,7 @@ function processForcast(response) {
   document.getElementById("f3Temp").innerText = response.forecast.forecastday[2].day.avgtemp_f + " °F"
 
   document.getElementById("f3Icon").src = response.forecast.forecastday[2].day.condition.icon
-  //console.log(response.forecast.forecastday[2].day.condition)
+  //console.log(weekDay)
 }
 
 
@@ -115,7 +116,7 @@ useEffect(() => {
         <div className='card'>
           <img id="icon" width="80" height="auto" />
           <h1 className='info' id="temp" />
-          <p className='info' id="location" />
+          <h1 className='loc' id="location" />
           <h1 className='info time' id="time" />
         </div>
       </div>
