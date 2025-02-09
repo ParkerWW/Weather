@@ -23,7 +23,7 @@ function App() {
   })
   .fail(function() {
     console.log("jQuery Request failed")
-  });
+  })
 }
 
 function processData(response){
@@ -45,6 +45,8 @@ function parseTime(time) {
   let pTime = lTime.split(/[ ,]+/)
   pTime[1] = pTime[1].slice(0, -3)
   pTime[1] = pTime[1].concat(" " + pTime[2])
+
+  //remove the now concated AM/PM
   pTime = pTime.splice(0, 2)
 
   //console.log(pTime)
@@ -97,7 +99,7 @@ function onEnter() {
 //fetch data on page load
 useEffect(() => {
   getData()
-}, []);
+}, [])
 
 //render HTML
   return (
