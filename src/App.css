@@ -19,8 +19,6 @@
 }
 .logo {
   height: 6em;
-  padding-top: 2px;
-  padding-left: 2px;
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #48adffc4);
@@ -31,6 +29,28 @@
   padding-left: 5em;
   padding-bottom: 2px;
   margin: 0;
+}
+
+.Git {
+  height: 50px;
+  margin: 0;
+  padding: 0;
+
+  position: absolute;
+  right: 20px;
+  top: 35px;
+  border-radius: 20%;
+
+  background: linear-gradient(to bottom, white 50%, #48adffc4 50%);
+  background-size: 100% 200%;
+  background-position:left top;
+
+  transition:all 1.5s ease-out;
+}
+.Git:hover {
+  background-position:right bottom;
+
+  transition:all 1.5s ease-in;
 }
 
 /* container for textbox */

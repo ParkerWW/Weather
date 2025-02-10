@@ -1,4 +1,5 @@
 import Logo from './assets/Logo.png'
+import Git from './assets/Github.svg'
 import './App.css'
 import $ from 'jquery'; 
 import React, { useEffect } from 'react'
@@ -112,6 +113,13 @@ useEffect(() => {
           <input className="textbox" type="text" id="locText" name="LocationText" placeholder="Enter Location" onKeyDown={onEnter} />
           <button className="textbutton" type="submit" onClick={handleChange}> Submit </button>
         </div>
+
+        <div className='fillC'>
+        <a href="https://www.github.com/ParkerWW" target="_blank">
+          <img src={Git} className='Git' />
+        </a>
+        </div>
+        
       </header>
       
       <div className='infoC'>
