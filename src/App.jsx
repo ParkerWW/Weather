@@ -5,9 +5,9 @@ import $ from 'jquery';
 import React, { useEffect } from 'react'
  
 //jQuery import
-var script = document.createElement('script');
-script.src = 'https://code.jquery.com/jquery-3.6.3.min.js'; //Check https://jquery.com/ for the current version
-document.getElementsByTagName('head')[0].appendChild(script);
+var script = document.createElement('script')
+script.src = 'https://code.jquery.com/jquery-3.6.3.min.js'
+document.getElementsByTagName('head')[0].appendChild(script)
 
 function App() {
   let place = "Seattle Washington"
@@ -47,7 +47,7 @@ function parseTime(time) {
   pTime[1] = pTime[1].slice(0, -3)
   pTime[1] = pTime[1].concat(" " + pTime[2])
 
-  //remove the now concated AM/PM
+  //remove the now concat'ed AM/PM
   pTime = pTime.splice(0, 2)
 
   //console.log(pTime)
