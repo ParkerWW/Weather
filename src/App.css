@@ -37,20 +37,20 @@
   padding: 0;
 
   position: absolute;
-  right: 20px;
   top: 35px;
+  right: 20px;
   border-radius: 20%;
 
-  background: linear-gradient(to bottom, white 50%, #48adffc4 50%);
+  background: linear-gradient(to bottom, white 50%, grey 50%);
   background-size: 100% 200%;
   background-position:left top;
 
-  transition:all 1.5s ease-out;
+  transition:all .8s ease-out;
 }
 .Git:hover {
   background-position:right bottom;
 
-  transition:all 1.5s ease-in;
+  transition:all .8s ease-in;
 }
 
 /* container for textbox */
