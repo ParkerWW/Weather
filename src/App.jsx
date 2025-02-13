@@ -118,6 +118,10 @@ useEffect(() => {
           <a href="https://www.github.com/ParkerWW" target="_blank">
             <img src={Git} className='Git' />
           </a>
+          
+          <a href="https://www.github.com/ParkerWW" target="_blank">
+            <img src={Git} className='Git' />
+          </a>
         </div>
         
       </header>
