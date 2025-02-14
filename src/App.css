@@ -31,6 +31,7 @@
   margin: 0;
 }
 
+/* social buttons */
 .fillC {
   position: absolute;
   top: 12px;
@@ -38,23 +39,33 @@
 
   vertical-align: auto;
 }
-.Git {
+#Linkedin {
+  background: linear-gradient(to bottom, lightgrey 50%, #005096 50%);
+  background-size: 100% 200%;
+  background-position: left top;
+}
+#Git {
+  background: linear-gradient(to bottom, lightgrey 50%, #50505a 50%);
+  background-size: 100% 200%;
+  background-position: left top;
+}
+.social {
   height: 50px;
+  width: 50px;
   margin: 0;
   padding: 0;
   margin-bottom: 4px;
 
-  border-radius: 20%;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 30%;
   display: flex;
   flex-direction: column;
-
-  background: linear-gradient(to bottom, white 50%, grey 50%);
-  background-size: 100% 200%;
-  background-position:left top;
-
-  transition:all .8s ease-out;
+  
+  transition: all .8s ease-out;
 }
-.Git:hover {
+#Git:hover, #Linkedin:hover {
   background-position:right bottom;
 
   transition:all .8s ease-in;
@@ -85,6 +96,7 @@
   padding: 5px;
   padding-left: 16px;
   padding-right: 93.5px;
+  background-color: #2e2e36;
 }
 .textbox:focus {
   outline: none !important;
@@ -98,7 +110,7 @@
   border: 2px solid #48adffc4;
 
   color: #48adffc4;
-  background-color: #2e2e3600;
+  background-color: #2e2e36;
 }
 .textbutton:hover {
   border: 2px solid #6966ff;

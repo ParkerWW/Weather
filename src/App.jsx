@@ -1,5 +1,6 @@
 import Logo from './assets/Logo.png'
 import Git from './assets/Github.svg'
+import Linkedin from './assets/Linkedin.png'
 import './App.css'
 import $ from 'jquery'; 
 import React, { useEffect } from 'react'
@@ -115,12 +116,12 @@ useEffect(() => {
         </div>
 
         <div className='fillC'>
-          <a href="https://www.github.com/ParkerWW" target="_blank">
-            <img src={Git} className='Git' />
+          <a href="https://www.github.com/ParkerWW" target="_blank" className='social' id='Git'>
+            <img src={Git} className='Git' height='47px' />
           </a>
           
-          <a href="https://www.github.com/ParkerWW" target="_blank">
-            <img src={Git} className='Git' />
+          <a href="https://www.linkedin.com/in/ParkerWeisel" target="_blank" className='social' id='Linkedin'>
+            <img src={Linkedin} className='Linkedin' height='40px' />
           </a>
         </div>
         
