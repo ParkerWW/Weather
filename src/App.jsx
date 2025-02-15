@@ -12,7 +12,7 @@ document.getElementsByTagName('head')[0].appendChild(script)
 
 function App() {
   let place = "Seattle Washington"
-  //get data from api with default being Seattle
+  //get data from api, default: Seattle
   function getData() {
   $.get("https://api.weatherapi.com/v1/forecast.json?key=3ad39a92992d4c1d854194810250602&q=" + place + "&days=3&aqi=no&alerts=no")
   //$.get("https://jsonplaceholder.typicode.com/posts/1") 
@@ -29,7 +29,7 @@ function App() {
 }
 
 function processData(response){
-  //get weather icon, current temp, location, time and put it on the page
+  //get weather icon, current temp, location, time and put it into id's
   document.getElementById("icon").src = response.current.condition.icon
 
   document.getElementById("temp").innerText = response.current.temp_f + " °F"
