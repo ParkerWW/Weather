@@ -162,10 +162,15 @@ body {
   padding: 0;
   margin: 0;
 }
+.range {
+  font-weight: 600;
+  font-size: 18pt;
+  text-shadow: 1.4px 1.4px black;
+}
 
 .card {
   width: 200px;
-  height: 235px;
+  height: 250px;
   margin: 2px;
   border-radius: 30px;
   box-shadow: 14px 14px 20px rgba(0, 0, 0, .3);

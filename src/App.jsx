@@ -37,6 +37,8 @@ function processData(response){
   document.getElementById("location").innerText = response.location.name + ", " + response.location.region
 
   document.getElementById("time").innerText = parseTime(response.location.tz_id)[1]
+
+  document.getElementById("range").innerText = response.forecast.forecastday[0].day.maxtemp_f + "°F ↔ " + response.forecast.forecastday[0].day.mintemp_f + " °F"
 }
 
 function parseTime(time) {
@@ -133,6 +135,7 @@ useEffect(() => {
           <h1 className='info' id="temp" />
           <h1 className='loc' id="location" />
           <h1 className='info time' id="time" />
+          <p className='info range' id='range' />
         </div>
       </div>
 
