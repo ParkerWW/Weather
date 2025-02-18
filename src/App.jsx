@@ -38,7 +38,7 @@ function processData(response){
 
   document.getElementById("time").innerText = parseTime(response.location.tz_id)[1]
 
-  document.getElementById("range").innerText = response.forecast.forecastday[0].day.maxtemp_f + "°F ↔ " + response.forecast.forecastday[0].day.mintemp_f + " °F"
+  document.getElementById("range").innerText = response.forecast.forecastday[0].day.maxtemp_f + "°F - " + response.forecast.forecastday[0].day.mintemp_f + "°F"
 }
 
 function parseTime(time) {
@@ -139,20 +139,20 @@ useEffect(() => {
         </div>
       </div>
 
-      <div className='fContainer'>
-        <div className='card cardf'>
+      <div className='forcastContainer'>
+        <div className='card cardForcast'>
           <h1 className='info days' id='f1Day' />
           <img id="f1Icon" width="60" height="auto" />
           <h1 className='info' id='f1Temp' />
         </div>
 
-        <div className='card cardf'>
+        <div className='card cardForcast'>
           <h1 className='info days' id='f2Day' />
           <img className='icon' id="f2Icon" width="60" height="auto" />
           <h1 className='info' id='f2Temp' />
         </div>
 
-        <div className='card cardf'>
+        <div className='card cardForcast'>
           <h1 className='info days' id='f3Day' />
           <img id="f3Icon" width="60" height="auto" />
           <h1 className='info' id='f3Temp' />

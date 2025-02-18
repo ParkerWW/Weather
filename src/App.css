@@ -188,13 +188,13 @@ body {
 
   transition: all .55s ease, background .5s .25s ease;
 }
-.cardf {
-  height: 175px;
+.cardForcast {
+  height: 180px;
 }
 
 .infoC {
   margin-left: 204px;
 }
-.fContainer {
+.forcastContainer {
   display: flex;
 }
