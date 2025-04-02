@@ -59,30 +59,19 @@ function parseTime(time) {
 
 function processForcast(response) {
   //get date and convert it to week day, get avg temp, and get icon for all 3 days
-  //day 1
   let weekDay = new Date(parseTime(response.location.tz_id))
-  document.getElementById("f1Day").innerText = weekDay.toString().slice(0, 3)
 
-  document.getElementById("f1Temp").innerText = response.forecast.forecastday[0].day.avgtemp_f + " °F"
+  for(let i = 0; i < 3; i++) {
+    let gID = "f" + (i + 1)
 
-  document.getElementById("f1Icon").src = response.forecast.forecastday[0].day.condition.icon
+    document.getElementById(gID + "Day").innerText = weekDay.toString().slice(0, 3)
 
-  //day 2
-  weekDay.setDate(weekDay.getDate() + 1)
-  document.getElementById("f2Day").innerText = weekDay.toString().slice(0, 3)
+    document.getElementById(gID + "Temp").innerText = response.forecast.forecastday[i].day.avgtemp_f + " °F"
+    
+    document.getElementById(gID + "Icon").src = response.forecast.forecastday[i].day.condition.icon
 
-  document.getElementById("f2Temp").innerText = response.forecast.forecastday[1].day.avgtemp_f + " °F"
-
-  document.getElementById("f2Icon").src = response.forecast.forecastday[1].day.condition.icon
-
-  //day 3
-  weekDay.setDate(weekDay.getDate() + 1)
-  document.getElementById("f3Day").innerText = weekDay.toString().slice(0, 3)
-
-  document.getElementById("f3Temp").innerText = response.forecast.forecastday[2].day.avgtemp_f + " °F"
-
-  document.getElementById("f3Icon").src = response.forecast.forecastday[2].day.condition.icon
-  //console.log(weekDay)
+    weekDay.setDate(weekDay.getDate() + 1)
+  }
 }
 
 
