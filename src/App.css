@@ -13,7 +13,7 @@
   margin: 0;
   padding: 0;
 
-  background: rgb(85, 85, 85, .7);
+  background: rgba(85, 85, 85, 0.7);
   color: #f1f1f1;
   text-align: left;
 }
@@ -40,12 +40,12 @@
   vertical-align: auto;
 }
 #Linkedin {
-  background: linear-gradient(to bottom, lightgrey 50%, #005096 50%);
+  background: linear-gradient(to bottom, white 50%, lightgrey 50%);
   background-size: 100% 200%;
   background-position: left top;
 }
 #Git {
-  background: linear-gradient(to bottom, lightgrey 50%, #50505a 50%);
+  background: linear-gradient(to bottom, white 50%, lightgrey 50%);
   background-size: 100% 200%;
   background-position: left top;
 }
