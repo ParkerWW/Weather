@@ -102,7 +102,7 @@ useEffect(() => {
         <p className="legal"> Could also be inside </p>
 
         <div className="textboxC">
-          <input className="textbox" type="text" id="locText" name="LocationText" placeholder="Enter Location" onKeyDown={onEnter} />
+          <input className="textbox" type="text" id="locText" name="LocationText" placeholder="Enter Location" onKeyDown={onEnter} autoFocus />
           <button className="textbutton" type="submit" onClick={handleChange}> Submit </button>
         </div>
 
