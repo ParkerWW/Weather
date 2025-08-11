@@ -39,6 +39,13 @@ function processData(response){
   document.getElementById("time").innerText = parseTime(response.location.tz_id)[1]
 
   document.getElementById("range").innerText = response.forecast.forecastday[0].day.maxtemp_f + "°F - " + response.forecast.forecastday[0].day.mintemp_f + "°F"
+
+  var a = []
+  for(var i = 0; i<24; i++)
+    a[i] = response.forecast.forecastday[0].hour[i].temp_f
+  //console.log(a)
+  //document.getElementById("graph").innerText = 
+
 }
 
 function parseTime(time) {
