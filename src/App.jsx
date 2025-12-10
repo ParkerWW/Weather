@@ -97,8 +97,9 @@ useEffect(() => {
 //render HTML
   return (
     <>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
       <header className="header">
-        <img src={Logo} className="logo" alt="logo" />
+        <img src={Logo} className="logo" alt="logo"  />
         <p className="legal"> Could also be inside </p>
 
         <div className="textboxC">
@@ -118,6 +119,7 @@ useEffect(() => {
         
       </header>
       
+      <div className='wrap'>
       <div className='infoC'>
         <div className='card'>
           <img id="icon" width="80" height="auto" />
@@ -146,6 +148,7 @@ useEffect(() => {
           <img id="f3Icon" width="60" height="auto" />
           <h1 className='info' id='f3Temp' />
         </div>
+      </div>
       </div>
     </>
   )
