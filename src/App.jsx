@@ -97,7 +97,6 @@ useEffect(() => {
 //render HTML
   return (
     <>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
       <header className="header">
         <img src={Logo} className="logo" alt="logo"  />
         <p className="legal"> Could also be inside </p>

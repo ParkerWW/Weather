@@ -111,10 +111,11 @@
   padding-right: 93.5px;
   background-color: #2e2e36;
   @media (max-width: 800px) {
-    width: 130%;
+    width: 132%;
     margin: 0px;
-    margin-left: 5px;
-    padding: auto;
+    margin-left: 10px;
+    padding-right: 16px;
+    border-radius: 25px 0px 0px 25px;
   }
 }
 .textbox:focus {
@@ -226,7 +227,7 @@ body {
   margin-left: 33%;
   
   @media (max-width: 800px) {
-    padding-top: 5%;
+    padding-top: 20%;
     margin-left: 20%;
   }
 }
